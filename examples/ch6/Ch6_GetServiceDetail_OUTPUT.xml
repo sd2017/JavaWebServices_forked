@@ -1,0 +1,51 @@
+
+_________________________________________________________
+Starting UDDISoapClient:
+    host url        = http://localhost:8080/wasp/uddi/inquiry/
+    data file       = Ch7_GetServiceDetail.xml
+___________________________________________________________
+
+Sent SOAP Message with Apache HTTP SOAP Client.
+Waiting for response....
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <serviceDetail generic="2.0" operator="SYSTINET" xmlns="urn:uddi-org:api_v2">
+            <businessService businessKey="9a26b6e0-c15f-11d5-85a3-801eef208714" serviceKey="860eca90-c16d-11d5-85ad-801eef208714">
+                <name xml:lang="en">DCAmail</name>
+                <description xml:lang="en">Get credit assessment by email</description>
+                <bindingTemplates>
+                    <bindingTemplate bindingKey="f9274a50-c16f-11d5-85ad-801eef208714" serviceKey="860eca90-c16d-11d5-85ad-801eef208714">
+                        <description xml:lang="en">The address to which you should send the name and address of your credit report target</description>
+                        <accessPoint URLType="mailto">mailto:DCAmail@democredit.bar</accessPoint>
+                        <tModelInstanceDetails>
+                            <tModelInstanceInfo tModelKey="uuid:93335d49-3efb-48a0-acea-ea102b60ddc6">
+                                <description xml:lang="en">The smtp protocol is used when sending information</description>
+                                <instanceDetails>
+                                    <overviewDoc>
+                                        <description xml:lang="en">Describes how to use this service</description>
+                                        <overviewURL>http://www.creditdemo.bar/DCAmail/howto</overviewURL>
+                                    </overviewDoc>
+                                </instanceDetails>
+                            </tModelInstanceInfo>
+                            <tModelInstanceInfo tModelKey="uuid:25ddf051-c164-11d5-85a6-801eef208714">
+                                <description xml:lang="en">The namespace in which our credit numbers are used.</description>
+                            </tModelInstanceInfo>
+                        </tModelInstanceDetails>
+                    </bindingTemplate>
+                </bindingTemplates>
+                <categoryBag>
+                    <keyedReference keyName="Personal credit agencies" keyValue="841416" tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+                    <keyedReference keyName="Credit agencies" keyValue="8414" tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+                    <keyedReference keyName="Netherlands" keyValue="NL" tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+                    <keyedReference keyName="France" keyValue="FR" tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+                    <keyedReference keyName="Belgium" keyValue="BE" tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+                    <keyedReference keyName="Business credit agencies" keyValue="841417" tModelKey="uuid:db77450d-9fa8-45d4-a7bc-04411d14e384"/>
+                    <keyedReference keyName="Luxembourg" keyValue="LU" tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+                    <keyedReference keyName="Germany, Federal Republic of" keyValue="DE" tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"/>
+                </categoryBag>
+            </businessService>
+        </serviceDetail>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+

@@ -1,0 +1,416 @@
+?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+   WSDL Schema for Z39.50/XER within SOAP v 1.1
+
+   Z39.50/XER implements the messages specified in Z39-50-APDU-1995,
+     assigned in OID.3.1, as {Z39-50 2 1}
+
+   The proposed XER specification is available
+    at "http://asf.gils.net/xer/standard.html".
+
+   This WSDL Compiled by M. J. Dovey, April 2001.
+   This WSDL modified for the Java Web Services book in January 2002.
+-->
+
+<definitions
+   targetNamespace="urn:3950"
+   xmlns="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"  
+   xmlns:tns="urn:3950"
+>
+
+
+  <import namespace="http://asf.gils.net/xer" 
+          location="http://asf.gils.net/xer/ez.xsd"/>
+
+  <message name="soapHeader">
+    <part type="xsd:string" name="id"/>
+    <part type="xsd:string" name="timeout"/>
+  </message>
+  <message name="initRequest">
+      <part type="xer:initRequest" name="initRequest"/>
+  </message>
+  <message name="initResponse">
+      <part type="xer:initResponse" name="initResponse"/>
+  </message>
+  <message name="searchRequest">
+      <part type="xer:searchRequest" name="searchRequest"/>
+  </message>
+  <message name="searchResponse">
+      <part type="xer:searchResponse" name="searchResponse"/>
+  </message>
+  <message name="presentRequest">
+      <part type="xer:presentRequest" name="presentRequest"/>
+  </message>
+  <message name="presentResponse">
+      <part type="xer:presentResponse" name="presentResponse"/>
+  </message>
+  <message name="sortRequest">
+      <part type="xer:sortequest" name="sortRequest"/>
+  </message>
+  <message name="sortResponse">
+      <part type="xer:sortResponse" name="sortResponse"/>
+  </message>
+  <message name="scanRequest">
+      <part type="xer:sortRequest" name="scanRequest"/>
+  </message>
+  <message name="scanResponse">
+      <part type="xer:scanResponse" name="scanResponse"/>
+  </message>
+  <message name="deleteRequest">
+      <part type="xer:scanRequest" name="deleteRequest"/>
+  </message>
+  <message name="deleteResponse">
+      <part type="xer:scanResponse" name="deleteResponse"/>
+  </message>
+  <message name="accessControlRequest">
+      <part type="xer:accessControlRequest" name="accessControlRequest"/>
+  </message>
+  <message name="accessControlResponse">
+      <part type="xer:accessControlResponse" name="accessControlResponse"/>
+  </message>
+  <message name="triggerResourceControlRequest">
+      <part type="xer:triggerResourceControlRequest" name="triggerResourceControlRequest"/>
+  </message>
+  <message name="resourceControlRequest">
+      <part type="xer:resourceControlRequest" name="resourceControlRequest"/>
+  </message>
+  <message name="resourceControlResponse">
+      <part type="xer:resourceControlResponse" name="resourceControlResponse"/>
+  </message>
+  <message name="resourceReportRequest">
+      <part type="xer:resourceReportRequest" name="resourceReportRequest"/>
+  </message>
+  <message name="resourceReportResponse">
+      <part type="xer:resourceReportResponse" name="resourceReportResponse"/>
+  </message>
+  <message name="extendedServicesRequest">
+      <part type="xer:extendedServicesRequest" name="extendedServicesRequest"/>
+  </message>
+  <message name="extendedServicesResponse">
+      <part type="xer:extendedServicesResponse" name="extendedServicesResponse"/>
+  </message>
+  <message name="close">
+      <part type="xer:close" name="close"/>
+  </message>
+
+
+  <portType name="ez3950PortTypes">
+
+<!-- Request-response Operations (client initiated) -->
+      <operation name="init">
+          <input message="initRequest"/>
+          <output message="initResponse"/>
+      </operation>
+      <operation name="search">
+          <input message="searchRequest"/>
+          <output message="searchResponse"/>
+      </operation>
+      <operation name="present">
+          <input message="presentRequest"/>
+          <output message="presentResponse"/>
+      </operation>
+      <operation name="sort">
+          <input message="sortRequest"/>
+          <output message="sortResponse"/>
+      </operation>
+      <operation name="scan">
+          <input message="scanRequest"/>
+          <output message="scanResponse"/>
+      </operation>
+      <operation name="delete">
+          <input message="deleteRequest"/>
+          <output message="deleteResponse"/>
+      </operation>
+      <operation name="resourceReport">
+          <input message="resourceReportRequest"/>
+          <output message="resourceReportResponse"/>
+      </operation>
+      <operation name="extendedServices">
+          <input message="extendedServicesRequest"/>
+          <output message="extendedServicesResponse"/>
+      </operation>
+      <operation name="close">
+          <output message="close"/>
+          <input message="close"/>
+      </operation>
+
+<!-- Solicit-response Operation (Server initiated) -->
+      <operation name="accessControl">
+          <output message="accessControlResponse"/>
+          <input message="accessControlRequest"/>
+      </operation>
+      <operation name="resourceControl">
+          <output message="resourceControlResponse"/>
+          <input message="resourceControlRequest"/>
+      </operation>
+      <operation name="close">
+          <output message="close"/>
+          <input message="close"/>
+      </operation>
+
+<!-- Notification Operations (server initiated) -->
+      <operation name="segment">
+          <output message="segmentRequest"/>
+      </operation>
+
+<!-- One-way Operations (client initiated) -->
+      <operation name="triggerResourceControl">
+          <input message="triggerResourceControlRequest"/>
+      </operation>
+
+<!-- Note: Segmentation control is not supported (do we need it?) -->
+  </portType>
+  <binding name="ez3950SOAPBinding" type="tns:ez3950PortTypes">
+
+    <soap:binding style="rpc" 
+                  transport="http://schemas.xmlsoap.org/soap/http"/>
+      <operation name="init">
+       <soap:operation soapAction=""/>
+         <input>
+           <soap:body use="encoded" 
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+         </input>
+         <output>
+           <soap:header message="soapHeader" 
+                        part="id" 
+                        use="encoded" 
+                        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           <soap:header message="soapHeader" 
+                        part="timeout" 
+                        use="encoded" 
+                        encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           <soap:body use="encoded" 
+                      encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+          </output>
+      </operation>
+<operation name="search">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:header message="soapHeader" part="id" use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                <soap:body use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:header message="soapHeader" part="id" use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                <soap:header message="soapHeader" part="timeout" use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                <soap:body use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="present">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:header message="soapHeader" part="id" use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                <soap:body use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:header message="soapHeader" part="id" use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                <soap:header message="soapHeader" part="timeout" use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+                <soap:body use="encoded" 
+                    encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+
+        <operation name="sort">
+           <soap:operation soapAction=""/>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:header message="soapHeader" part="timeout" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+        </operation>
+
+        <operation name="scan">
+           <soap:operation soapAction=""/>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:header message="soapHeader" part="timeout" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+        </operation>
+
+        <operation name="delete">
+           <soap:operation soapAction=""/>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:header message="soapHeader" part="timeout" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+        </operation>
+
+        <operation name="resourceReport">
+           <soap:operation soapAction=""/>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:header message="soapHeader" part="timeout" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+        </operation>
+
+        <operation name="extendedService">
+           <soap:operation soapAction=""/>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:header message="soapHeader" part="timeout" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+        </operation>
+
+        <operation name="close">
+           <soap:operation soapAction=""/>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+        </operation>
+
+        <operation name="close">
+           <soap:operation soapAction=""/>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:header message="soapHeader" part="timeout" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+        </operation>
+
+        <operation name="accessControl">
+           <soap:operation soapAction=""/>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:header message="soapHeader" part="timeout" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+        </operation>
+
+        <operation name="resourceControl">
+           <soap:operation soapAction=""/>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:header message="soapHeader" part="timeout" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+        </operation>
+
+        <operation name="segment">
+           <soap:operation soapAction=""/>
+           <output>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:header message="soapHeader" part="timeout" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </output>
+        </operation>
+
+        <operation name="triggerResourceControl">
+           <soap:operation soapAction=""/>
+           <input>
+               <soap:header message="soapHeader" part="id" use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+               <soap:body use="encoded" 
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+           </input>
+        </operation>
+    </binding>
+
+    <service name="Oxford University Libraries">
+      <documentation>
+        Z39.50 Server for Oxford University Libraries
+      </documentation>
+      <port name="OLIS" binding="ez:ez3950SOAPBinding">
+        <soap:address location="http://jafer.las.ox.ac.uk/ez3950"/>
+      </port>	
+    </service>
+</definitions>

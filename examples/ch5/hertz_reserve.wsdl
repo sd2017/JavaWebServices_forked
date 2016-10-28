@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<definitions
+	name="HertzReserveService" 
+	targetNamespace="http://oreilly.jaws.book/chapter03/definitions"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:hrs="http://oreilly.jaws.book/chapter03/schemas"
+>
+	<import
+		namespace="http://oreilly.jaws.book/chapter03/schemas"
+		location="file://d:/jaws/book/code/chapter03/wsdl/hertzreserve/hertz_reserve.xsd"
+	/>
+
+  	<message name="HertzReserve">
+    		<part name="request" type="hrs:InputMessage"/>
+  	</message>
+
+  	<message name="HertzReserveResponse">
+		<part name="response" type="hrs:OutputMessage"/>
+  	</message>
+
+	<portType name="HertzReservePortType">
+		<operation name="exec">
+			<input message="hrs:HertzReserve"/>
+			<output message="hrs:HertzReserveResponse"/>
+		</operation>
+	</portType>
+</definitions>

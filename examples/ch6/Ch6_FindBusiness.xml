@@ -1,0 +1,3 @@
+<uddi:find_business generic="2.0" maxRows="10">
+  <uddi:name>Demi Credit</uddi:name>
+</uddi:find_business>

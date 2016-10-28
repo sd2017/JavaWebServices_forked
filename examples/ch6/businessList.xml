@@ -1,0 +1,9 @@
+<businessList generic="1.0" operator="SYSTINET" xmlns="urn:uddi-org:api">
+  <businessInfos>
+    <businessInfo businessKey="892ac280-c16b-11d5-85ad-801eef208714">
+      <name>Demi Credit</name>
+      <description xml:lang="en">A smaller demo credit agency used for illustrating UDDI inquiry.</description>
+      <serviceInfos></serviceInfos>
+    </businessInfo>
+  </businessInfos>
+</businessList>

@@ -1,0 +1,9 @@
+<isd:service xmlns:isd="http://xml.apache.org/xml-soap/deployment"
+             id="urn:stock-onhand">
+  <isd:provider type="java"
+                scope="Application"
+                methods="getQty">
+    <isd:java class="StockQuantity"/>
+  </isd:provider>
+  <isd:faultListener>org.apache.soap.server.DOMFaultListener</isd:faultListener>
+</isd:service>

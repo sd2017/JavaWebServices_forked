@@ -1,0 +1,6 @@
+<find_business generic="1.0">
+  <findQualifiers>
+    <findQualifier>sortByNameDesc</findQualifier>
+  </findQualifiers>
+  <name>Demi Credit</name>
+</find_business>

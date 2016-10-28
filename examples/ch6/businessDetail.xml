@@ -1,0 +1,29 @@
+<businessDetail generic="1.0" operator="SYSTINET" xmlns="urn:uddi-org:api">
+  <businessEntity authorizedName="john_demo" businessKey="892ac280-c16b-11d5-85ad-801eef208714" operator="SYSTINET">
+    <discoveryURLs>
+      <discoveryURL useType="demo">http://www.demicredit.bar</discoveryURL>
+    </discoveryURLs>
+    <name>Demi Credit</name>
+    <description xml:lang="en">A smaller demo credit agency used for illustrating UDDI inquiry.</description>
+    <contacts>
+      <contact useType="C.E.O.">
+        <description xml:lang="en">Chief Executive Officer</description>
+        <personName>David Tarnov</personName>
+        <email useType="General">tarnov@creditdemi.bar</email>
+        <address sortCode="101" useType="General">
+          <addressLine>2 Rue de la Demo, Brussels, Belgium</addressLine>
+        </address>
+      </contact>
+    </contacts>
+    <identifierBag>
+      <keyedReference keyName="Demo Credit number identifier" keyValue="20011015-00-a2" tModelKey="uuid:25ddf051-c164-11d5-85a6-801eef208714"></keyedReference>
+    </identifierBag>
+    <categoryBag>
+      <keyedReference keyName="Canada" keyValue="CA" tModelKey="uuid:4e49a8d6-d5a2-4fc2-93a0-0411d8d19e88"></keyedReference>
+      <keyedReference keyName="Personal credit institutions" keyValue="6141" tModelKey="uuid:70a80f61-77bc-4821-a5e2-2a406acc35dd"></keyedReference>
+      <keyedReference keyName="Personal credit institutions" keyValue="6140" tModelKey="uuid:70a80f61-77bc-4821-a5e2-2a406acc35dd"></keyedReference>
+      <keyedReference keyName="Misc. personal credit institutions" keyValue="6149" tModelKey="uuid:70a80f61-77bc-4821-a5e2-2a406acc35dd"></keyedReference>
+      <keyedReference keyName="Licensed small loan lenders" keyValue="6145" tModelKey="uuid:70a80f61-77bc-4821-a5e2-2a406acc35dd"></keyedReference>
+    </categoryBag>
+  </businessEntity>
+</businessDetail>

@@ -1,0 +1,24 @@
+
+_________________________________________________________
+Starting UDDISoapClient:
+    host url        = http://localhost:8080/wasp/uddi/inquiry/
+    data file       = Ch7_GetTModelDetail.xml
+___________________________________________________________
+
+Sent SOAP Message with Apache HTTP SOAP Client.
+Waiting for response....
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <tModelDetail generic="2.0" operator="SYSTINET" xmlns="urn:uddi-org:api_v2">
+            <tModel authorizedName="admin" operator="SYSTINET" tModelKey="uuid:93335d49-3efb-48a0-acea-ea102b60ddc6">
+                <name>uddi-org:smtp</name>
+                <description xml:lang="en">E-mail based web service</description>
+                <categoryBag>
+                    <keyedReference keyName="A transport tModel is a specific type of protocol" keyValue="transport" tModelKey="uuid:c1acf26d-9672-4404-9d70-39b756e62ab4"/>
+                </categoryBag>
+            </tModel>
+        </tModelDetail>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+

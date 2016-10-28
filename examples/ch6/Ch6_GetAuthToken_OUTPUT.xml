@@ -1,0 +1,20 @@
+
+_________________________________________________________
+Starting UDDISoapClient:
+    host url        = https://localhost:8443/wasp/uddi/publishing/
+    data file       = Ch7_GetAuthToken.xml
+___________________________________________________________
+
+Sent SOAP Message with Apache HTTP SOAP Client.
+Waiting for response....
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <authToken xmlns="urn:uddi-org:api_v2" generic="2.0" operator="SYSTINET">
+      <authInfo>
+MIHLMDYbBWFkbWluMB4XDTAxMTIzMDAwNDYzNVoXDTAxMTIzMDAxNDYzNVoEDUFkbWluaXN0cmF0b3IwDQYJKoZIhvcNAQEEBQADgYEA4Cci/CbDji6RiQFneRt7gVXwX/4TA7qCZNUmTnXFJdVNFIDvp4WV+IW+/deDCQk0GVAdsub0vkXJX3dqdDGqDsDleXwm7cDN2ENW7K/IeN9ii7/pfbVryPtKzzbe07ETcWAoRnkcgDteC7I77VpyiqKHUqwmi5+kN10XMRXfkTw=
+      </authInfo>
+    </authToken>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+

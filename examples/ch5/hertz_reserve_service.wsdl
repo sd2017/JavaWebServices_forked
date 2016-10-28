@@ -1,0 +1,34 @@
+<definitions
+	name="HertzReserveService" 
+	targetNamespace="http://oreilly.jaws.book/chapter03/hertz_reserve"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+	xmlns:tns="http://oreilly.jaws.book/chapter03/hertz_reserve"
+	xmlns:defs="http://oreilly.jaws.book/chapter03/definitions"
+	xmlns:hrs="http://oreilly.jaws.book/chapter03/schemas"
+>
+	<import
+		namespace="http://oreilly.jaws.book/chapter03/definitions"
+		location="file:///d:/jaws/book/code/chapter03/wsdl/hertzreserve/hertz_reserve.wsdl"
+	/>
+
+	<binding name="HertzReserveBinding" type="defs:HertzReservePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="exec">
+			<soap:operation soapAction="http://oreilly.jaws.book/chapter03/HertzReserve"/>
+			<input>
+        			<soap:body use="literal" namespace="urn:HertzReserveService"/>
+      		</input>
+      		<output>
+        			<soap:body use="literal" namespace="urn:HertzReserveService"/>
+      		</output>
+    		</operation>
+  	</binding>
+
+	<service name="HertzReserveService">
+		<documentation></documentation>
+		<port name="HertzReserveServicePort" binding="tns:HertzReserveBinding">
+			<soap:address location="http://localhost:7001/soap/servlet/messagerouter"/>
+		</port>
+	</service>
+</definitions>

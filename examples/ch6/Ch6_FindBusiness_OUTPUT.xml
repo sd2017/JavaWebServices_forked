@@ -1,0 +1,28 @@
+
+_________________________________________________________
+Starting UDDISoapClient:
+    host url        = http://localhost:8080/wasp/uddi/inquiry/
+    data file       = Ch7_FindBusiness.xml
+___________________________________________________________
+
+Sent SOAP Message with Apache HTTP SOAP Client.
+Waiting for response....
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <businessList generic="2.0" operator="SYSTINET" xmlns="urn:uddi-org:api_v2">
+            <businessInfos>
+                <businessInfo businessKey="892ac280-c16b-11d5-85ad-801eef208714">
+                    <name xml:lang="en">Demi Credit</name>
+                    <description xml:lang="en">A smaller demo credit agency used for illustrating UDDI inquiry.</description>
+                    <serviceInfos>
+                        <serviceInfo businessKey="9a26b6e0-c15f-11d5-85a3-801eef208714" serviceKey="860eca90-c16d-11d5-85ad-801eef208714">
+                            <name xml:lang="en">DCAmail</name>
+                        </serviceInfo>
+                    </serviceInfos>
+                </businessInfo>
+            </businessInfos>
+        </businessList>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+

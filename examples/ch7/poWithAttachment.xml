@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PurchaseOrderWithAttachment xmlns="urn:oreilly-jaws-samples">
+	<shipTo country="US">
+		<name>Joe Smith</name>
+		<street>14 Oak Park</street>
+		<city>Bedford</city>
+		<state>MA</state>
+		<zip>01730</zip>
+	</shipTo>
+	<items>
+		<item partNum="872-AA">
+			<productName>Candy Canes</productName>
+			<quantity>444</quantity>
+			<price>1.68</price>
+			<comment>I want candy!</comment>
+		</item>
+	</items>
+	<attachment href="cid:the-attachment"/>
+</PurchaseOrderWithAttachment>

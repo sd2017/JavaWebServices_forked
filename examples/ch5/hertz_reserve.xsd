@@ -1,0 +1,87 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xsd:schema
+	targetNamespace = "http://oreilly.jaws.book/chapter03/schemas"
+	xmlns:xsd = "http://www.w3.org/2001/XMLSchema"
+>
+	<xsd:complexType name="InputMessage">
+		<xsd:sequence>
+			<xsd:element name="header" type="InputHeader"/>
+			<xsd:element name="payload" type="InputPayload"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InputHeader">
+		<xsd:sequence>
+	  		<xsd:element name="schema" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InputPayload">
+		<xsd:sequence>
+	  		<xsd:element name="request" type="ServiceRequest"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ServiceRequest">
+		<xsd:sequence>
+			<xsd:element name="fromOAG" type="xsd:string"/>
+			<xsd:element name="toOAG" type="xsd:string"/>
+			<xsd:element name="pickupDatetime" type="Datetime"/>
+			<xsd:element name="dropoffDatetime" type="Datetime"/>
+			<xsd:element name="profile" type="Profile"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="OutputMessage">
+		<xsd:sequence>
+	  		<xsd:element name="header" type="OutputHeader"/> 
+			<xsd:element name="payload" type="OutputPayload"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="OutputHeader">
+		<xsd:sequence>
+	  		<xsd:element name="schema" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="OutputPayload">
+		<xsd:sequence>
+	  		<xsd:element name="response" type="ServiceResponse"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ServiceResponse">
+		<xsd:sequence>
+			  <xsd:element name="return" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Profile">
+		<xsd:sequence>
+			<xsd:element name="creditCard" type="CreditCard"/> 
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CreditCard">
+		<xsd:sequence>
+			<xsd:element name="cc_type" type="xsd:string"/> 
+			<xsd:element name="cc_number" type="xsd:string"/> 
+			<xsd:element name="cc_expmonth" type="xsd:string"/> 
+			<xsd:element name="cc_expyear" type="xsd:string"/> 
+			<xsd:element name="bill_fname" type="xsd:string"/> 
+			<xsd:element name="bill_lname" type="xsd:string"/> 
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Datetime">
+		<xsd:sequence>
+			<xsd:element name="day" type="xsd:string"/> 
+			<xsd:element name="month" type="xsd:string"/>
+			<xsd:element name="year" type="xsd:string"/> 
+			<xsd:element name="hour" type="xsd:string"/> 
+			<xsd:element name="mins" type="xsd:string"/>
+			<xsd:element name="AMPM" type="xsd:string"/> 
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
